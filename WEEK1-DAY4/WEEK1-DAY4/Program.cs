@@ -65,18 +65,23 @@ namespace WEEK1_DAY4
 
             //#region Typed Method Calls
 
-            bool someBoolVariable = false;
+            //I can call this method and use it any where I might use a string because it returns a string
+            Console.WriteLine(ThisIsATypedMethod());
 
-
-            
             //#endregion
 
             #region Arrays
 
+            //Create an array of strings
             string[] myArray = new string[5];
-            for(int i = 2; i < myArray.Length; i++)
+
+            //Loop on every spot in the array so I can put something in each one
+            for(int i = 0; i < myArray.Length; i++)
             {
+                //In the "i" position place a string that includes the value of i
                 myArray[i] = string.Format("Count is {0}", i);
+
+                //Write out what is in the "i" position of the array
                 Console.WriteLine(myArray[i]);
             }
 
@@ -101,6 +106,7 @@ namespace WEEK1_DAY4
             Console.WriteLine(string.Format("Going to school on day {0}, week {1}, month{2}",
                 whatDay, whatWeek, whatMonth));
 
+            //I can call a method from inside a method
             DoHomework(whatDay, whatWeek, whatMonth);
         }
 
@@ -110,5 +116,43 @@ namespace WEEK1_DAY4
             Console.WriteLine(string.Format("Doing homework on homework day {0}, on homework week {1}, on homework month {2}",
                 whatHomeworkDay, whatHomeworkWeek, whatHomeworkMonth));
         }
+
+        static string ThisIsATypedMethod()
+        {
+            //This method does nothing other than return a string
+
+            if (DateTime.Now.DayOfWeek == DayOfWeek.Monday)
+            {
+                return "Today is Monday";
+            }
+            else if (DateTime.Now.DayOfWeek == DayOfWeek.Tuesday)
+            {
+                return "Today is Tuesday";
+            }
+            else if (DateTime.Now.DayOfWeek == DayOfWeek.Wednesday)
+            {
+                return "Today is Wednesday";
+            }
+            else if (DateTime.Now.DayOfWeek == DayOfWeek.Thursday)
+            {
+                return "Today is Thursday";
+            }
+            else if (DateTime.Now.DayOfWeek == DayOfWeek.Friday)
+            {
+                return "It's finally Friday";
+            }
+            else if (DateTime.Now.DayOfWeek == DayOfWeek.Saturday)
+            {
+                return "Catch up on your homework it's Saturday";
+            }
+            else if (DateTime.Now.DayOfWeek == DayOfWeek.Sunday)
+            {
+                return "It's Sunday, I hope your homework is done!";
+            }
+
+            //The method should never actually execute this line of code.
+            return "Something weird has happened because today is not one of the normal 7 days of the week!";
+        }
     }
 }
+
